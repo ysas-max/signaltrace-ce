@@ -1,0 +1,24 @@
+[
+  {
+    "cluster_id": "cluster-001",
+    "members": ["user_alpha", "user_beta"],
+    "scores": {
+      "similarity": 0.82,
+      "risk": 0.12
+    },
+    "metadata": {
+      "description": "Cluster de usuários que conversam frequentemente sobre ciência."
+    }
+  },
+  {
+    "cluster_id": "cluster-002",
+    "members": ["user_gamma"],
+    "scores": {
+      "similarity": 0.30,
+      "risk": 0.05
+    },
+    "metadata": {
+      "description": "Usuário que interage ocasionalmente com outros grupos."
+    }
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "msg-0001",
+    "timestamp": "2025-12-01T12:34:56Z",
+    "sender": "user_alpha",
+    "receiver": "user_beta",
+    "content": "Olá, você viu o novo relatório sobre eventos solares?",
+    "metadata": {
+      "channel": "chat",
+      "tags": ["astronomia", "informação"]
+    }
+  },
+  {
+    "id": "msg-0002",
+    "timestamp": "2025-12-01T12:35:02Z",
+    "sender": "user_beta",
+    "receiver": "user_alpha",
+    "content": "Vi sim! Acho fascinante como estrelas podem influenciar nossos sistemas.",
+    "metadata": {
+      "channel": "chat",
+      "tags": ["astronomia"]
+    }
+  },
+  {
+    "id": "msg-0003",
+    "timestamp": "2025-12-02T08:15:10Z",
+    "sender": "user_gamma",
+    "receiver": "user_alpha",
+    "content": "Bom dia! Vamos praticar para a maratona de codificação hoje?",
+    "metadata": {
+      "channel": "email",
+      "tags": ["codificação", "evento"]
+    }
+  }
+]

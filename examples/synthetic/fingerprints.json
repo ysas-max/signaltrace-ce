@@ -1,0 +1,24 @@
+[
+  {
+    "fingerprint_id": "fp-001",
+    "entity": "user_alpha",
+    "features": {
+      "avg_message_length": 42.0,
+      "time_between_messages": 300.5,
+      "unique_words": 15
+    },
+    "score": 0.75,
+    "explanation": "Usuário envia mensagens moderadamente longas com um intervalo médio de 5 minutos."
+  },
+  {
+    "fingerprint_id": "fp-002",
+    "entity": "user_beta",
+    "features": {
+      "avg_message_length": 55.3,
+      "time_between_messages": 280.2,
+      "unique_words": 22
+    },
+    "score": 0.80,
+    "explanation": "Usuário tende a responder rapidamente com vocabulário mais extenso."
+  }
+]

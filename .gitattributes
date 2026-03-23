@@ -1,0 +1,13 @@
+# Set default behavior to automatically normalize line endings.
+* text=auto
+
+# Treat JSON and YAML files as text.
+*.json text
+*.yml text
+*.yaml text
+
+# Ensure shell scripts have LF endings.
+*.sh eol=lf
+
+# Mark documentation files as linguist documentation for GitHub stats.
+*.md linguist-documentation
