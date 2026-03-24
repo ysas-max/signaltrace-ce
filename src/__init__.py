@@ -1,9 +1,5 @@
-"""Pacote principal do SignalTrace CE."""
+"""Pacote principal do SignalTrace CE.
 
-__all__ = [
-    "normalization",
-    "fingerprint",
-    "correlation",
-    "scoring",
-    "io",
-]
+Este pacote fornece módulos de normalização, fingerprint, correlação, scoring,
+servidor de API e CLI.  Consulte a documentação em `docs/` para detalhes.
+"""

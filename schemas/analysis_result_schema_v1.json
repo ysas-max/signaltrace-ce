@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://signaltrace.example/schema/analysis_result/v1",
+  "title": "Analysis Result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["clusters", "summary"],
+  "properties": {
+    "clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["cluster_id", "members", "score", "level", "explanation"],
+        "properties": {
+          "cluster_id": {"type": "string"},
+          "members": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "score": {"type": "number"},
+          "level": {
+            "type": "string",
+            "enum": ["baixo", "moderado", "alto", "crítico"]
+          },
+          "explanation": {"type": "string"}
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total_events", "total_clusters", "top_markers", "top_domains", "average_score", "warnings"],
+      "properties": {
+        "total_events": {"type": "integer"},
+        "total_clusters": {"type": "integer"},
+        "top_markers": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "top_domains": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "average_score": {"type": "number"},
+        "warnings": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

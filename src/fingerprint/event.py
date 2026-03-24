@@ -7,6 +7,8 @@ from typing import Any, Dict, List, Optional, Set
 
 @dataclass
 class EventFingerprint:
+    """Representa um fingerprint comportamental extraído de um evento."""
+
     event_id: str
     features: Dict[str, float]
     tokens: Set[str]
@@ -17,6 +19,8 @@ class EventFingerprint:
 
 
 class EventFingerprintExtractor:
+    """Extrai fingerprints comportamentais de eventos normalizados."""
+
     def __init__(self, suspicious_keywords: Optional[List[str]] = None) -> None:
         self.suspicious_keywords = [kw.lower() for kw in suspicious_keywords] if suspicious_keywords else []
 

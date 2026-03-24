@@ -1,3 +1,1 @@
-from .normalizer import Normalizer
-
-__all__ = ["Normalizer"]
+"""Módulo de normalização do SignalTrace CE."""

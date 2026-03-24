@@ -7,6 +7,8 @@ from ..fingerprint.event import EventFingerprint
 
 
 class EventCorrelationEngine:
+    """Agrupa eventos por similaridade de domínio, tokens, marcadores e tempo."""
+
     def __init__(self, threshold: float = 0.5, weights: Dict[str, float] | None = None, time_window_hours: float = 48.0) -> None:
         self.threshold = threshold
         self.weights = weights or {"domain": 0.3, "tokens": 0.3, "markers": 0.2, "time": 0.2}

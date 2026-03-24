@@ -8,6 +8,14 @@ from typing import Any, Dict, List, Set
 
 @dataclass
 class Normalizer:
+    """Normaliza campos de eventos observacionais.
+
+    Esta classe limpa e padroniza o texto das mensagens, remove
+    caracteres não alfanuméricos, converte para minúsculas,
+    extrai tokens e determina flags de risco simples com base em
+    repetição e palavras‑chave suspeitas.
+    """
+
     suspicious_keywords: List[str] = field(
         default_factory=lambda: [
             "bonus", "bônus", "promocao", "promoção", "casino",
@@ -17,8 +25,10 @@ class Normalizer:
     repetition_threshold: float = 0.4
 
     def normalize(self, event: Dict[str, Any]) -> Dict[str, Any]:
+        """Retorna uma cópia normalizada do evento."""
         normalized = dict(event)
         text = normalized.get("message_text", "")
+        # limpar caracteres especiais e normalizar espaços
         text_clean = re.sub(r"[^\w\s]", " ", text.lower())
         text_clean = re.sub(r"\s+", " ", text_clean).strip()
         normalized["message_text"] = text_clean
@@ -36,6 +46,7 @@ class Normalizer:
                 flags.add("keyword-suspeita")
                 break
 
+        # normalizar domínio e detectar domínios suspeitos
         domain = normalized.get("domain_hint")
         if isinstance(domain, str) and domain:
             domain_lower = domain.lower().strip()

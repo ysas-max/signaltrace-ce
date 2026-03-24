@@ -1,3 +1,1 @@
-from .event_reader import load_events
-
-__all__ = ["load_events"]
+"""Módulo de entrada e validação de eventos do SignalTrace CE."""

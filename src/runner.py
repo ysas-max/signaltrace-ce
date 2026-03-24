@@ -11,6 +11,7 @@ from .scoring.risk import RiskScorer
 
 
 def run_pipeline(path: str) -> List[Dict[str, Any]]:
+    """Executa o pipeline completo em um arquivo de eventos e retorna clusters com scores."""
     events = load_events(path)
     normalizer = Normalizer()
     normalized_events = [normalizer.normalize(evt) for evt in events]
@@ -21,6 +22,7 @@ def run_pipeline(path: str) -> List[Dict[str, Any]]:
 
 
 def main() -> None:
+    """Função principal do runner CLI (obsoleto). Use a CLI pública para funcionalidades avançadas."""
     parser = argparse.ArgumentParser(description="Executa o motor SignalTrace CE em um dataset sintético de eventos.")
     parser.add_argument("--input", type=str, default="examples/synthetic/events_dataset_v1.json")
     args = parser.parse_args()

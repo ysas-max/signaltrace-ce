@@ -1,3 +1,1 @@
-from .event_correlation import EventCorrelationEngine
-
-__all__ = ["EventCorrelationEngine"]
+"""Módulo de correlação de eventos do SignalTrace CE."""

@@ -1,3 +1,1 @@
-from .event import EventFingerprint, EventFingerprintExtractor
-
-__all__ = ["EventFingerprint", "EventFingerprintExtractor"]
+"""Módulo de fingerprint comportamental do SignalTrace CE."""

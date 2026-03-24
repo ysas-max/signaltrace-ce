@@ -1,10 +1,14 @@
-"""Módulo de contratos e schemas.
+"""
+Contracts package for SignalTrace CE.
 
-Responsável por carregar e fornecer acesso aos schemas públicos
-versionados definidos em `schemas/`. Facilita a validação de dados de
-entrada e saída.
+This package provides helpers for loading and working with JSON
+schemas used throughout the system.  The Community Edition uses
+versioned schemas stored in the top‑level ``schemas`` directory.  The
+helpers here centralise loading so that API and CLI code can depend
+on a single function to fetch the appropriate schema without
+duplicating file paths.
 """
 
-from .schema import load_schema
+from .schema import load_schema  # noqa: F401
 
 __all__ = ["load_schema"]

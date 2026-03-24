@@ -1,8 +1,14 @@
-"""Carregador de schemas JSON.
+"""
+Schema loading utilities for SignalTrace CE.
 
-Este módulo contém funções para localizar e carregar schemas JSON
-definidos no diretório `schemas/`. Os schemas são utilizados para
-validar mensagens e clusters sintéticos.
+This module defines functions to load JSON schema definitions used for
+input validation and contract documentation.  Schemas are stored in
+the top‑level ``schemas`` directory and are versioned by filename.  For
+example, the event schema is stored in ``schemas/event_schema_v1.json``.
+
+The ``load_schema`` function reads and returns the JSON object from
+a given schema file name.  It performs no validation of the schema
+itself.
 """
 
 from __future__ import annotations
@@ -12,24 +18,23 @@ from pathlib import Path
 from typing import Any, Dict
 
 
-SCHEMAS_DIR = Path(__file__).resolve().parents[2] / "schemas"
-
-
 def load_schema(name: str) -> Dict[str, Any]:
-    """Carrega um schema JSON a partir do diretório de schemas.
+    """Load a JSON schema by file name from the ``schemas`` directory.
 
     Args:
-        name: Nome do arquivo de schema.
+        name: The file name of the schema, e.g. ``"event_schema_v1.json"``.
 
     Returns:
-        Dicionário representando o schema JSON.
+        A dictionary representing the parsed JSON schema.
 
     Raises:
-        FileNotFoundError: Se o arquivo não existir.
-        json.JSONDecodeError: Se o arquivo não contiver JSON válido.
+        FileNotFoundError: If the specified schema file does not exist.
+        json.JSONDecodeError: If the schema file contains invalid JSON.
     """
-    schema_path = SCHEMAS_DIR / name
+    # Compute path to the repository root (two levels up from this file)
+    base_dir = Path(__file__).resolve().parents[2]
+    schema_path = base_dir / "schemas" / name
     if not schema_path.is_file():
-        raise FileNotFoundError(f"Schema não encontrado: {name}")
-    with schema_path.open("r", encoding="utf-8") as file_handle:
-        return json.load(file_handle)
+        raise FileNotFoundError(f"Schema não encontrado: {schema_path}")
+    with schema_path.open("r", encoding="utf-8") as f:
+        return json.load(f)

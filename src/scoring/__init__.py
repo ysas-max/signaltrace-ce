@@ -1,3 +1,1 @@
-from .risk import RiskScorer
-
-__all__ = ["RiskScorer"]
+"""Módulo de scoring do SignalTrace CE."""

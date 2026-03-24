@@ -7,6 +7,8 @@ from ..fingerprint.event import EventFingerprint
 
 
 class RiskScorer:
+    """Calcula scores de risco e gera explicações para clusters de eventos."""
+
     DEFAULT_WEIGHTS = {
         "domain": 0.3,
         "tokens": 0.25,
