@@ -1,17 +1,9 @@
-"""Top-level package for SignalTrace Community Edition.
-
-Este pacote agrupa os módulos principais do motor de correlação,
-fingerprint, scoring, sanitização, IO e contratos. Todos os
-componentes foram projetados para serem modulares, extensíveis e
-auditáveis.
-"""
+"""Pacote principal do SignalTrace CE."""
 
 __all__ = [
-    "core",
+    "normalization",
     "fingerprint",
     "correlation",
     "scoring",
-    "sanitization",
     "io",
-    "contracts",
 ]

@@ -1,9 +1,3 @@
-"""Módulo de entrada e saída para o SignalTrace CE.
+from .event_reader import load_events
 
-Define funções para carregar e salvar dados em formatos suportados,
-como JSON.
-"""
-
-from .reader import load_messages
-
-__all__ = ["load_messages"]
+__all__ = ["load_events"]

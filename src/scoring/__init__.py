@@ -1,9 +1,3 @@
-"""Módulo de pontuação explicável.
+from .risk import RiskScorer
 
-Fornece classes para calcular scores de risco ou confiança com base nas
-correlações observadas.
-"""
-
-from .score import ScoreEngine
-
-__all__ = ["ScoreEngine"]
+__all__ = ["RiskScorer"]

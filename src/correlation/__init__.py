@@ -1,9 +1,3 @@
-"""Módulo de correlação de entidades.
+from .event_correlation import EventCorrelationEngine
 
-Define algoritmos para correlacionar fingerprints e agrupar entidades
-com base em similaridade comportamental.
-"""
-
-from .engine import CorrelationEngine
-
-__all__ = ["CorrelationEngine"]
+__all__ = ["EventCorrelationEngine"]

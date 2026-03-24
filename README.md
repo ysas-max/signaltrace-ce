@@ -1,82 +1,57 @@
 # SignalTrace Community Edition (signaltrace-ce)
 
-SignalTrace CE is the **community edition** of the SignalTrace ecosystem.  It is an open‑source, defensive and observational platform designed to facilitate collaborative research into behavioral fingerprints and correlation across communication artifacts.  The goal is to provide an auditable engine that helps defenders understand patterns in synthetic communications without ever collecting or processing real user data.
+SignalTrace CE é a versão de **código aberto** da plataforma SignalTrace, focada em análise defensiva e observacional de campanhas suspeitas. Esta edição comunitária fornece um motor auditável, exemplos sintéticos e documentação completa para permitir contribuições externas sem expor dados sensíveis ou capacidades ofensivas.
 
-## Visão
+## Visão Geral
 
-SignalTrace CE é o núcleo público e auditável da plataforma SignalTrace.  Ele oferece mecanismos de normalização, correlação e pontuação explicáveis para que pesquisadores de segurança e membros da comunidade possam experimentar e contribuir com técnicas defensivas de detecção.  **Não** é um produto pronto para uso operacional, nem contém módulos ofensivos ou de coleta agressiva.
+Esta fase implementa o núcleo funcional mínimo do motor público. O sistema processa eventos observados, aplica normalização segura, extrai fingerprints comportamentais, correlaciona eventos semelhantes e calcula um score de risco configurável. Os resultados incluem justificativas textuais e são baseados unicamente em dados sintéticos.
 
 ### Missão Defensiva
 
-O objetivo deste projeto é fortalecer defesas e aumentar a transparência ao oferecer:
+O objetivo do SignalTrace CE é apoiar pesquisadores e defensores na análise de campanhas de fraude e spam de forma ética, transparente e explicável. A plataforma **não** faz atribuição categórica de autores ou intenções e **não** oferece funcionalidades ofensivas ou de coleta agressiva. Correlação e score são apenas indicadores; não devem ser interpretados como provas.
 
-* Um motor de correlação auditável e modular.
-* Um pipeline de fingerprint comportamental sem dependência de dados privados.
-* Pontuação explicável que prioriza interpretabilidade.
-* Sanitização pública e normalização de dados para garantir que nenhum dado sensível seja exposto.
+### Escopo do Repositório
 
-## O que o projeto faz
+O repositório público contém:
 
-* Processa artefatos de comunicação sintéticos ou de domínio público através de módulos de **core**, **fingerprint**, **correlation**, **scoring** e **sanitization**.
-* Define **schemas** públicos e versionados para os dados de entrada e saída.
-* Oferece exemplos sintéticos em `examples/synthetic/` que demonstram mensagens, clusters, domínios e handles fictícios.
-* Fornece documentação de governança, política de dados, modelo de ameaças e um roteiro de funcionalidades.
+- Schemas públicos versionados para descrever eventos observacionais.
+- Pipeline de normalização que padroniza texto, marcações e domínios de forma segura.
+- Fingerprint comportamental que resume características de cada evento de maneira não reversível.
+- Correlação básica para agrupar eventos com base em semelhança de domínio, estrutura e marcadores.
+- Scoring explicável com pesos configuráveis para indicar níveis de risco.
+- Dataset sintético em `examples/synthetic/` com campanhas simuladas, falsos positivos e variações de templates.
+- Runner CLI simples que processa o dataset sintético, aplica o pipeline e imprime resultados legíveis.
+- Testes unitários cobrindo schema, normalização, fingerprint, correlação, scoring, leitura de dados e runner.
 
-## O que o projeto não faz
+### O que Este Projeto Não Faz
 
-* **Não** inclui dados reais, credenciais, tokens, telemetria sensível ou evidências operacionais.
-* **Não** implementa automação ofensiva, scraping invasivo, enumeração ativa ou qualquer capacidade de abuso contra terceiros.
-* **Não** faz atribuição categórica de culpa ou intenção; correlação não é prova e os outputs devem ser interpretados com cuidado.
-* **Não** depende de repositórios privados para funcionar; todo o código necessário está neste repositório público.
+- Não inclui dados reais, credenciais, tokens, telemetria sensível ou evidências operacionais.
+- Não contém scraping agressivo ou automação ofensiva.
+- Não depende de serviços externos; todo processamento ocorre localmente.
+- Não apresenta scores como provas; são apenas indicadores para orientar investigações.
 
-## Separação entre `signaltrace-ce` e `signaltrace-data`
+### Separação entre `signaltrace-ce` e `signaltrace-data`
 
-O repositório **signaltrace-ce** contém apenas lógica auditável, schemas públicos e exemplos sintéticos.  Qualquer dataset real, integração sensível ou evidência operacional pertence ao repositório privado **signaltrace-data**, que não é distribuído publicamente.  Essa separação garante que contribuidores possam auditar e melhorar o motor sem acesso a informações restritas.
+O **signaltrace-ce** contém apenas lógica e dados sintéticos. Dados ou integrações sensíveis pertencem ao repositório privado **signaltrace-data** e não são necessários para utilizar a edição comunitária.
 
-## Como rodar localmente
+## Instalação e Execução
 
-1. **Pré‑requisitos:**
-   - Python 3.10 ou superior.
-   - `virtualenv` ou similar para isolar dependências.
-   - `pip` para instalação de pacotes.
-2. **Clone o repositório:**
+```bash
+git clone <repo_url>
+cd signaltrace-ce
+python -m venv .venv
+source .venv/bin/activate  # no Windows use `.venv\Scripts\Activate.ps1`
+pip install -r requirements-dev.txt
+pytest -q
+python -m src.runner --input examples/synthetic/events_dataset_v1.json
+```
 
-   ```sh
-   git clone https://github.com/seuusuario/signaltrace-ce.git
-   cd signaltrace-ce
-   ```
+## Documentação
 
-3. **Crie e ative um ambiente virtual:**
+- `docs/schema_event.md`
+- `docs/scoring.md`
+- `docs/engine_flow.md`
 
-   ```sh
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
+## Mudanças Recentes
 
-4. **Instale dependências para desenvolvimento:**
-
-   ```sh
-   pip install -r requirements-dev.txt
-   ```
-
-5. **Execute testes e lint:**
-
-   ```sh
-   pytest
-   flake8 src tests
-   ```
-
-Este repositório ainda não inclui uma aplicação executável; ele fornece um conjunto de bibliotecas e utilitários para construir soluções defensivas.
-
-## Como contribuir
-
-Contribuições são bem‑vindas!  Leia primeiro o arquivo [`CONTRIBUTING.md`](CONTRIBUTING.md) para conhecer o fluxo de trabalho, estilo de código e requisitos de pull requests.  Ao abrir uma PR, utilize o modelo em `.github/pull_request_template.md` e siga nosso código de conduta.
-
-## Limitações éticas e técnicas
-
-* Toda a demonstração deve usar apenas dados sintéticos ou públicos seguros.
-* Nunca submeta informações pessoais, logs reais ou evidências operacionais neste repositório.
-* O motor de correlação pode gerar falsos positivos ou atribuições incorretas; utilize‑o como ferramenta auxiliar e não como prova conclusiva.
-* O projeto está em desenvolvimento inicial e não possui todas as funcionalidades planejadas no `ROADMAP.md`.
-
-Para dúvidas ou relatórios de vulnerabilidades, consulte o arquivo [`SECURITY.md`](SECURITY.md).
+Consulte o `CHANGELOG.md`.

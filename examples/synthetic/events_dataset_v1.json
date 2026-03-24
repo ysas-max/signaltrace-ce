@@ -1,0 +1,80 @@
+[
+  {
+    "event_id": "evt1",
+    "source_type": "sms",
+    "observed_at": "2025-09-01T08:00:00Z",
+    "message_text": "Parabéns! você ganhou um bônus exclusivo. Clique agora em bonus-exemplo.com para resgatar.",
+    "sender_handle": "sender1",
+    "sender_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "domain_hint": "bonus-exemplo.com",
+    "campaign_markers": ["bonus", "promoção"],
+    "language_hint": "pt-BR",
+    "risk_flags": [],
+    "metadata": {"note": "synthetic"}
+  },
+  {
+    "event_id": "evt2",
+    "source_type": "sms",
+    "observed_at": "2025-09-01T08:05:00Z",
+    "message_text": "Você foi selecionado para uma promoção especial! Acesse promo.exemplo.com e resgate seu prêmio agora mesmo. Promoção, promoção, promoção!",
+    "sender_handle": "sender2",
+    "sender_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "domain_hint": "promo.exemplo.com",
+    "campaign_markers": ["promoção"],
+    "language_hint": "pt-BR",
+    "risk_flags": [],
+    "metadata": {"note": "synthetic"}
+  },
+  {
+    "event_id": "evt3",
+    "source_type": "sms",
+    "observed_at": "2025-09-01T08:10:00Z",
+    "message_text": "Cassino grátis! Jogue agora e ganhe prêmios incríveis no site cassino.xyz.",
+    "sender_handle": "sender3",
+    "sender_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "domain_hint": "cassino.xyz",
+    "campaign_markers": ["cassino"],
+    "language_hint": "pt-BR",
+    "risk_flags": [],
+    "metadata": {"note": "synthetic"}
+  },
+  {
+    "event_id": "evt4",
+    "source_type": "email",
+    "observed_at": "2025-09-01T09:00:00Z",
+    "message_text": "Seu pacote está a caminho. Confirme os detalhes da entrega em entrega-segura.org/confirmar.",
+    "sender_handle": "sender4",
+    "sender_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "domain_hint": "entrega-segura.org",
+    "campaign_markers": [],
+    "language_hint": "pt-BR",
+    "risk_flags": [],
+    "metadata": {"note": "synthetic"}
+  },
+  {
+    "event_id": "evt5",
+    "source_type": "whatsapp",
+    "observed_at": "2025-09-01T10:00:00Z",
+    "message_text": "Apenas uma mensagem de verificação. Olá, tudo bem?",
+    "sender_handle": "sender5",
+    "sender_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "domain_hint": "chat.example.com",
+    "campaign_markers": [],
+    "language_hint": "pt-BR",
+    "risk_flags": [],
+    "metadata": {"note": "synthetic"}
+  },
+  {
+    "event_id": "evt6",
+    "source_type": "sms",
+    "observed_at": "2025-09-01T08:15:00Z",
+    "message_text": "Promoção imperdível! Clique agora no site bonus-exemplo.com e ganhe bônus de até 50%.",
+    "sender_handle": "sender6",
+    "sender_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "domain_hint": "bonus-exemplo.com",
+    "campaign_markers": ["promoção", "bonus"],
+    "language_hint": "pt-BR",
+    "risk_flags": [],
+    "metadata": {"note": "synthetic"}
+  }
+]

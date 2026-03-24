@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://signaltrace.example/schema/event/v1",
+  "title": "Observational Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "source_type",
+    "observed_at",
+    "message_text",
+    "sender_handle",
+    "sender_hash"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "source_type": {
+      "type": "string",
+      "enum": ["sms", "whatsapp", "email", "social", "other"]
+    },
+    "observed_at": {"type": "string", "format": "date-time"},
+    "message_text": {"type": "string", "minLength": 1, "maxLength": 2048},
+    "sender_handle": {"type": "string", "minLength": 1},
+    "sender_hash": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+    "destination_hint": {"type": "string"},
+    "domain_hint": {"type": "string", "pattern": "^[A-Za-z0-9.-]+$"},
+    "campaign_markers": {"type": "array", "items": {"type": "string"}},
+    "language_hint": {"type": "string"},
+    "risk_flags": {"type": "array", "items": {"type": "string"}},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {"type": ["string", "number", "boolean", "null"]}
+    }
+  }
+}
